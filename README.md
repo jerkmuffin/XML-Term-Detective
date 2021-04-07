@@ -16,3 +16,6 @@ TermDetective is a free software designed to:
 ## Usage  
 With Python3 and PyQt5 installed (see above) the script can be run with the following command:  
 `python XMLTermDetective.py`
+
+
+## Usage detail
