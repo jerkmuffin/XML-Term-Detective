@@ -114,6 +114,7 @@ class MainWindow(QMainWindow):
         print("FILE NAME", fileName)
         self.makeCountFile(fileName + ".count.csv")
         self.makeOutputFile(fileName + ".output.csv")
+        self.showdialog(fileName)
 
     def makeOutputFile(self, fileName):
         os.rename('output.csv', fileName)
@@ -131,9 +132,24 @@ class MainWindow(QMainWindow):
                 f.write(line + '\n')
         print(self.counter)
 
+    def showdialog(self, fileName):
+        msg = QMessageBox()
+        msg.setText("Success!\nThe following files have been written:\n{}\n{}\nSelect Ok to exit or Cancel to process more files".format(fileName + ".count.csv", fileName + ".output.csv"))
+        msg.setWindowTitle("MessageBox demo")
+        msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+        msg.buttonClicked.connect(self.msgbtn)
 
+        retval = msg.exec_()
+        print("value of pressed message box button: {}".format(retval))
 
-
+    def msgbtn(self, i):
+        print("Button pressed is: {}".format(i.text()))
+        if i.text() == "Cancel":
+            self.progressStatus = 0
+            self.progress.setValue(self.progressStatus)
+            self.progress.setVisible(False)
+        elif i.text() == "OK":
+            sys.exit()
 
 
 app = QApplication(sys.argv)
