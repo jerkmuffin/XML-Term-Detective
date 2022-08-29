@@ -21,7 +21,7 @@ With Python3 and PyQt5 installed (see above) the script can be run with the foll
 ## Usage detail  
 ### To download with Git
 Open command line and navigate to a local directory of choice. Type
-`git clone https://github.com/jerkmuffin/XML-Term-Dectective.git`
+`git clone https://github.com/jerkmuffin/XML-Term-Detective.git`
 
 Navigate to the TermDetective folder and launch the application using the python (.py)  file, see above. A GUI will open:  
 ![empty gui](assets/figure1.jpg)
